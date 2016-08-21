@@ -1,2 +1,2 @@
-# fetchi
-A whatwg-fetch wrapper for simple web requests.
+# Fetchi
+A whatwg-fetch function wrapper for simple web requests. :)
