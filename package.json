@@ -1,0 +1,23 @@
+{
+  "name": "@nosherwan/fetchi",
+  "version": "0.0.1",
+  "description": "A whatwg-fetch function wrapper for simple web requests. :)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nosherwan/fetchi.git"
+  },
+  "keywords": [
+    "whatwg-fetch",
+    "fetch"
+  ],
+  "author": "Nosh Ghazanfar <nosherwan@gmail.com> (https://au.linkedin.com/in/nosherwan)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nosherwan/fetchi/issues"
+  },
+  "homepage": "https://github.com/Nosherwan/fetchi#readme"
+}
