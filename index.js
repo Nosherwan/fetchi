@@ -1,3 +1,5 @@
+'use strict';
+
 // The value for globalUri should be set before using Fetchi.fetch
 var globalUri = 'http://localhost:8080/';
 
@@ -23,6 +25,11 @@ var Fetchi = {
         globalUri = uri;
     },
 
+/**
+ * Convenience method for fetch requests
+ * @param {Object} options 
+ * @return {Object} promise
+ */
     fetch: function (options) {
         options = options || {};
         options.method = options.method || 'get';
