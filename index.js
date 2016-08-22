@@ -21,6 +21,10 @@ var globalUri = 'http://localhost:8080/';
 
 var Fetchi = {
 
+/**
+ * GlobalUri setter method for fetch requests
+ * @return {string} uri 
+ */
     setGlobalUri: function (uri) {
         globalUri = uri;
     },
