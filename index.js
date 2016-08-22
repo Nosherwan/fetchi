@@ -1,20 +1,26 @@
-var url = 'http://localhost:3010/api/';
+// The value for globalUri should be set before using Fetchi.fetch
+var globalUri = 'http://localhost:8080/';
 
-var Fetchi = {
-    queryStringFromObject: function (api, data) {
-        var querystring = Object.keys(data)
+  function  _queryStringFromObject (api, data) {
+        var queryString = Object.keys(data)
             .map(function (key) {
                 return key + '=' + encodeURIComponent(data[key]);
             })
             .join('&');
 
-        querystring = (api && querystring) ? '?' + querystring : (querystring ? querystring : '');
+        queryString = (api && queryString) ? '?' + queryString : (queryString ? queryString : '');
 
-        return api ? (url + api + querystring) : querystring;
-    },
+        return api ? (globalUri + api + queryString) : queryString;
+    };
 
-    queryUrl: function (api) {
-        return url + api;
+  function  _queryUri (api) {
+        return globalUri + api;
+    };
+
+var Fetchi = {
+
+    setGlobalUri: function (uri) {
+        globalUri = uri;
     },
 
     fetch: function (options) {
@@ -42,18 +48,18 @@ var Fetchi = {
                     params.method = options.method;
                     if (options.type !== 'json') {
                         params.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-                        params.body = this.queryStringFromObject(null, options.data);
+                        params.body = _queryStringFromObject(null, options.data);
                     } else {
                         params.body = JSON.stringify(options.data);
                     }
-                    promise = fetch(this.queryUrl(options.api), params);
+                    promise = fetch(_queryUri(options.api), params);
                     break;
                 default:    //should serve for get
-                    promise = fetch(this.queryStringFromObject(options.api, options.data), params);
+                    promise = fetch(_queryStringFromObject(options.api, options.data), params);
                     break;
             }
 
-            return promise.then(function(result) {
+            return promise.then(function (result) {
                 return result.json()
             });
         } else {
@@ -62,4 +68,4 @@ var Fetchi = {
     }
 };
 
-export default Fetchi;
+module.exports = Fetchi;
