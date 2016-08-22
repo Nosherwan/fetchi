@@ -62,7 +62,9 @@ var Fetchi = {
                     promise = fetch(_queryUri(options.api), params);
                     break;
                 default:    //should serve for get
-                    promise = fetch(_queryStringFromObject(options.api, options.data), params);
+                    promise = fetch(_queryStringFromObject(options.api, options.data), {
+                        method: params.method, headers: params.headers
+                    });
                     break;
             }
 
