@@ -1,5 +1,5 @@
 {
-  "name": "@nosherwan/reesors",
+  "name": "@nosherwan/reesorce",
   "version": "0.0.1",
   "description": "A whatwg-fetch function wrapper for simple web requests. :)",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nosherwan/reesors.git"
+    "url": "git+https://github.com/Nosherwan/reesorce.git"
   },
   "keywords": [
     "whatwg-fetch",
@@ -17,9 +17,9 @@
   "author": "Nosh Ghazanfar <nosherwan@gmail.com> (https://au.linkedin.com/in/nosherwan)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Nosherwan/reesors/issues"
+    "url": "https://github.com/Nosherwan/reesorce/issues"
   },
-  "homepage": "https://github.com/Nosherwan/reesors#readme",
+  "homepage": "https://github.com/Nosherwan/reesorce#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.0.2"
