@@ -57,3 +57,5 @@ reesorce.postJSON('records',{
 		console.log(err);
 	});
 ```
+
+Feel free to try it out.
