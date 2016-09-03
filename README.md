@@ -8,8 +8,10 @@ If you are new to fetch or whatwg-fetch but would like to make simple web reques
 
 ## Dependency
 The only dependency is on the package `whatwg-fetch`. As it is a polyfill apart from installing it you will have to expose it as a global. You can find these instructions in more detail on the whatwg-fetch github page as well, however they are provided as follows:
+
 1. First add the following to the top of your entry js file such as index.js:
 `import 'babel-polyfill';`
+
 2. Then if you are using webpack add the following to your webpack.config.js file's plugins section:
 ```javascript
 plugins:[
