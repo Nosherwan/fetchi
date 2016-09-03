@@ -4,7 +4,22 @@ A whatwg-fetch convenience wrapper for simple web requests.
 If you are new to fetch or whatwg-fetch but would like to make simple web requests to interact with web apis, then `Reesorce` will make that task easy for you.
 
 ## Installation
-`npm install @nosherwan/reesorce`
+`npm install nosherwan/reesorce`
+
+## Dependency
+The only dependency is on the package `whatwg-fetch`. As it is a polyfill apart from installing it you will have to expose it as a global. You can find these instructions in more detail on the whatwg-fetch github page as well, however they are provided as follows:
+
+1. First add the following to the top of your entry js file such as index.js:
+`import 'babel-polyfill';`
+
+2. Then if you are using webpack add the following to your webpack.config.js file's plugins section:
+```javascript
+plugins:[
+	new webpack.ProvidePlugin({
+			'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+	}),
+]
+```
 
 ## Convenience
 
