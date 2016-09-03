@@ -2,8 +2,8 @@
 
 'use strict';
 
-// The value for globalUri should be set before using Fetchi.fetch
-var _globalUri = 'http://localhost:8080/';
+// The value for globalUri should be set before using Reesorce.fetch
+var _globalUri = '';
 
 function _queryStringFromObject(api, data) {
 	var queryString = Object.keys(data)
@@ -21,18 +21,23 @@ function _queryUri(api) {
 	return _globalUri + api;
 }
 
+
+function _defaultOptions(endPoint, options) {
+	var defaultOptions = options || {};
+	defaultOptions.api = endPoint;
+	defaultOptions.method = defaultOptions.method || 'get';
+	defaultOptions.data = defaultOptions.data || {};
+	return defaultOptions;
+}
+
 /**
 * Convenience method for fetch requests
 * @param {Object} options 
 * @return {Object} promise
 */
 function _fetch(options) {
-	var promise = null;
+	if (!_globalUri) throw new Error('Please set a global uri via setGlobalUri.');
 	var params = { method: '', headers: {} };
-
-	options = options || {};
-	options.method = options.method || 'get';
-	options.data = options.data || {};
 
 	params.method = options.method;
 	if (options.type === 'json') {
@@ -77,32 +82,41 @@ var Reesorce = {
 		_globalUri = uri;
 	},
 
-	getHTML: function (options) {
-		//TODO:	Needs implementation
+	getHTML: function (endPoint, options) {
+		options = _defaultOptions(endPoint, options);
+		return _fetch(options)
+			.then(function (result) {
+				return result.ok ? result.text() : result;
+			});
 	},
 
 	getJSON: function (endPoint, options) {
+		options = _defaultOptions(endPoint, options);
 		options.type = 'json';
-		options.method = 'get';
-		options.api = endPoint;
 		return _fetch(options)
 			.then(function (result) {
-				return result.json();
+				return result.ok ? result.json() : result;
 			});
 	},
 
 	postJSON: function (endPoint, options) {
+		options = _defaultOptions(endPoint, options);
 		options.type = 'json';
 		options.method = 'post';
-		options.api = endPoint;
 		return _fetch(options)
 			.then(function (result) {
-				return result.json();
+				return result.ok ? result.json() : result;
 			});
 	},
 
-	postForm: function(options){
-
+	postForm: function(endPoint, options){
+		options = _defaultOptions(endPoint, options);
+		options.type = 'urlencoded';
+		options.method = 'post';
+		return _fetch(options)
+			.then(function (result) {
+				return result.ok ? result.json() : result;
+			});
 	}
 	
 };
