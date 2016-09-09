@@ -2,13 +2,13 @@
 /*eslint-disable no-console*/
 
 //'use strict';
-var reesorce = require('../index');
+var reesource = require('../index');
 var root = 'http://httpbin.org/';
-reesorce.setGlobalUri(root);
+reesource.setGlobalUri(root);
 
 describe('#reesource.getJSON', function () {
 	it('Should make a successful getJSON request', function () {
-		reesorce.getJSON('get')
+		reesource.getJSON('get')
 			.then(function (result) {
 				expect(result).to.have.property('url');
 			})
@@ -20,7 +20,7 @@ describe('#reesource.getJSON', function () {
 
 describe('#reesource.getHTML', function () {
 	it('Should make a successful getHTML request', function () {
-		reesorce.getHTML('get')
+		reesource.getHTML('get')
 			.then(function (result) {
 				expect(result).to.be.a('string');
 			})
@@ -32,7 +32,7 @@ describe('#reesource.getHTML', function () {
 
 describe('#reesource.postJSON', function () {
 	it('Should make a successful postJSON request', function () {
-		reesorce.postJSON('post', {
+		reesource.postJSON('post', {
 			data: { name: 'test', type: 'test' }
 		})
 			.then(function (result) {
@@ -46,7 +46,7 @@ describe('#reesource.postJSON', function () {
 
 describe('#reesource.postForm', function () {
 	it('Should make a successful postForm request', function () {
-		reesorce.postForm('post', {
+		reesource.postForm('post', {
 			data: { name: 'test', type: 'test' }
 		})
 			.then(function (result) {

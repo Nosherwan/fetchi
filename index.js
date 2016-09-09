@@ -2,7 +2,7 @@
 
 'use strict';
 
-// The value for globalUri should be set before using Reesorce.fetch
+// The value for globalUri should be set before using Reesource.fetch
 var _globalUri = '';
 
 function _queryStringFromObject(api, data) {
@@ -73,7 +73,7 @@ function _fetch(options) {
 	}
 }
 
-var Reesorce = {
+var Reesource = {
 	/**
 	 * GlobalUri setter method for fetch requests
 	 * @return {string} uri 
@@ -121,4 +121,4 @@ var Reesorce = {
 	
 };
 
-module.exports = Reesorce;
+module.exports = Reesource;
