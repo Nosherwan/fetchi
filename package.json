@@ -1,6 +1,6 @@
 {
   "name": "reesource",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A whatwg-fetch convenience wrapper for simple web requests.",
   "main": "index.js",
   "directories": {
