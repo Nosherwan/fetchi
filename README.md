@@ -1,4 +1,4 @@
-# Reesorce
+# Reesource
 A whatwg-fetch convenience wrapper for simple web requests.
 
 If you are new to fetch or whatwg-fetch but would like to make simple web requests to interact with web apis, then `Reesorce` will make that task easy for you.
